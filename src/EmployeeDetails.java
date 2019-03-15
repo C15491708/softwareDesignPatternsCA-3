@@ -575,6 +575,9 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 					nextRecord();// look for next record
 					displayRecords(currentEmployee);
 				} // end if
+				else {
+					change = false;
+				}
 			} // end if
 		} // end if
 	}// end deleteDecord
@@ -1007,7 +1010,7 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 			} else if (e.getSource() == searchBySurname) {
 				displaySearchBySurnameDialog();
 			} else if (e.getSource() == saveChange) {
-				;
+				saveChanges();
 			} else if (e.getSource() == firstItem || e.getSource() == first) {
 				firstRecord();
 				displayRecords(currentEmployee);
@@ -1020,21 +1023,16 @@ public class EmployeeDetails extends JFrame implements ActionListener, ItemListe
 			} else if (e.getSource() == lastItem || e.getSource() == last) {
 				lastRecord();
 				displayRecords(currentEmployee);
-			}
-			else if (e.getSource() == listAll || e.getSource() == displayAll) {
+			} else if (e.getSource() == listAll || e.getSource() == displayAll) {
 				if (isSomeoneToDisplay())
 					displayEmployeeSummaryDialog();
-			}
-			else if (e.getSource() == create || e.getSource() == add) {
+			} else if (e.getSource() == create || e.getSource() == add) {
 				new AddRecordDialog(EmployeeDetails.this);
-			}
-			else if (e.getSource() == modify || e.getSource() == edit) {
+			} else if (e.getSource() == modify || e.getSource() == edit) {
 				editDetails();
-			}
-			else if (e.getSource() == delete || e.getSource() == deleteButton) {
+			} else if (e.getSource() == delete || e.getSource() == deleteButton) {
 				deleteRecord();
-			}
-			else if (e.getSource() == searchBySurname) {
+			} else if (e.getSource() == searchBySurname) {
 				new SearchBySurnameDialog(EmployeeDetails.this);
 			}
 		}
